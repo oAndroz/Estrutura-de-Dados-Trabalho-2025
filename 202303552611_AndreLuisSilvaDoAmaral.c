@@ -1,4 +1,4 @@
-/*
+//*
    Trabalho de Estrutura de Dados 
    Grupo (individual):
    - André Luis Silva do Amaral – Matrícula: 202303552611
@@ -38,7 +38,7 @@ void mostrarHUD() {
     printf("└────────────────────────────────────────────────┘\n");
 }
 
-/* Ordena por nome usando Bubble Sort (case-insensitive) */
+/* Ordena por nome usando Bubble Sort */
 int bubbleSortNome(Componente v[], int n) {
     int comp = 0;
     int trocou;
@@ -74,7 +74,6 @@ int insertionSortTipo(Componente v[], int n) {
         }
         v[j+1] = atual;
     }
-
     return comp;
 }
 
@@ -96,11 +95,10 @@ int selectionSortPrioridade(Componente v[], int n) {
             v[min] = tmp;
         }
     }
-
     return comp;
 }
 
-/* Busca binária pelo nome (funciona apos ordenar por nome) */
+/* Busca binária pelo nome */
 int buscaBinariaPorNome(Componente v[], int n, char chave[]) {
     int inicio = 0, fim = n - 1;
 
@@ -112,7 +110,6 @@ int buscaBinariaPorNome(Componente v[], int n, char chave[]) {
         if (r > 0) inicio = meio + 1;
         else fim = meio - 1;
     }
-
     return -1;
 }
 
@@ -219,6 +216,10 @@ int main() {
             double tempo = (double)(t2 - t1) / CLOCKS_PER_SEC;
 
             printf("Comparacoes: %d | Tempo: %.6f s\n", comp, tempo);
+
+            /* >>> (exibir automaticamente) <<< */
+            printf("\nComponentes após ordenação:\n");
+            mostrarComponentes(lista, qtd);
         }
 
         /* Busca binária */
